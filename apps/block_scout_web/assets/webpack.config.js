@@ -79,7 +79,10 @@ const appJs =
       path: path.resolve(__dirname, '../priv/static/js')
     },
     optimization: {
-      minimizer: [new TerserJSPlugin(jsOptimizationParams), new CssMinimizerPlugin()],
+      minimizer: [
+        new TerserJSPlugin(jsOptimizationParams),
+        // new CssMinimizerPlugin(),
+      ],
     },
     module: {
       rules: [

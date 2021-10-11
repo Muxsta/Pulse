@@ -21,7 +21,7 @@ defmodule BlockScoutWeb.LayoutViewTest do
     end
 
     test "logo is nil when there is no env configured for it" do
-      assert LayoutView.logo() == nil
+      assert LayoutView.logo() == "/images/logo_pulsechain.svg"
     end
   end
 
