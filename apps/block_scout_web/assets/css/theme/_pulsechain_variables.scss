@@ -90,6 +90,8 @@ $api-text-monospace-color: $primary;
 $dark-primary: #9b62ff;
 $dark-secondary: #87e1a9;
 $dark-primary-alternate: #7e50d0;
+$shadow-l1: 0px 1px 3px 0px rgba(0, 0, 0, 0.2);
+$shadow-l1-diffuse: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
 
 .layout-container {
 	.dashboard-banner-container {
@@ -125,3 +127,6 @@ $dark-primary-alternate: #7e50d0;
     }
   }
 }
+
+a.tile-title { color: $primary !important; }
+.navbar { box-shadow: $shadow-l1; } // header shadow
