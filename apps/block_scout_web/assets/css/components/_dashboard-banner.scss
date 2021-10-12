@@ -214,7 +214,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
     position: absolute;
     width: 9999px;
     z-index: -1;
-    box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: $shadow-l1-diffuse;
     border-top-left-radius: 10px;
 
     @include media-breakpoint-down(md) {

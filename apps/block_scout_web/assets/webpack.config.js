@@ -108,7 +108,8 @@ const appJs =
     optimization: {
       minimizer: [
         new TerserJSPlugin(jsOptimizationParams),
-        // new CssMinimizerPlugin(),
+        // in an attempt to be able to replace files in docker container
+        process.env.NODE_ENV === 'production' ? new CssMinimizerPlugin() : () => {},
       ],
     },
     module: {
