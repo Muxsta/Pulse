@@ -6,10 +6,10 @@ $pulse-purple: #8000ff;
 $pulse-pink: #e619e6;
 $pulse-red: #f00;
 $pulse-gradient: linear-gradient(210deg, $pulse-light-blue 0%, $pulse-blue 25%, $pulse-purple 50%, $pulse-pink 75%, $pulse-red 100%);
-@font-face {
-  font-family: 'avenirnext';
-  src: url("/AvenirNext-DemiBold.ttf");
-}
+// @font-face {
+//   font-family: 'avenirnext';
+//   src: url("/AvenirNext-DemiBold.ttf") format('ttf');
+// }
 
 // general
 $primary: $pulse-purple;
@@ -22,10 +22,14 @@ $footer-background-color: rgba(0,0,0, 0.9);
 $footer-title-color: #fff;
 $footer-text-color: $secondary;
 $footer-item-disc-color: $secondary;
+
+$avenir-font-family: 'Avenir Next DemiBold', sans-serif;
 // .footer-logo { filter: brightness(0) invert(1); }
 .footer-logo, .footer-logo-words {
   height: 100%;
-  font-family: "avanirnext" sans-serif;
+}
+.logo-text {
+  font-family: $avenir-font-family;
 }
 
 // dashboard
@@ -112,10 +116,8 @@ $shadow-l1-diffuse: 0px 0px 30px 0px rgba(0, 0, 0, 0.3);
     .footer-social-icons {
       color: $secondary;
     }
-    .footer-logo {
-      .logo-text.footer {
-        color: white;
-      }
+    .logo-text.footer {
+      color: white;
     }
   }
 }
