@@ -172,7 +172,8 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
 .dashboard-banner-network-plain-container {
   align-items: center;
   align-self: flex-end;
-  background-color: $dashboard-banner-network-plain-container-background-color;
+  color: $primary;
+  background-color: $primary;
   border-top-left-radius: 10px;
   display: flex;
   height: $dashboard-banner-network-plain-container-height;
@@ -204,7 +205,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
   }
 
   &::after {
-    background-color: $dashboard-banner-network-plain-container-background-color;
+    background-color: $primary;
     bottom: 0;
     content: "";
     display: block;
@@ -213,7 +214,7 @@ $dashboard-banner-chart-axis-font-color-alt: #333;
     position: absolute;
     width: 9999px;
     z-index: -1;
-    box-shadow: 0 0 35px 0 rgba(0, 0, 0, 0.2);
+    box-shadow: $shadow-l1-diffuse;
     border-top-left-radius: 10px;
 
     @include media-breakpoint-down(md) {

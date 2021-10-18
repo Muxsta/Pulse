@@ -106,7 +106,11 @@ const appJs =
       path: path.resolve(__dirname, '../priv/static/js')
     },
     optimization: {
-      minimizer: [new TerserJSPlugin(jsOptimizationParams), new CssMinimizerPlugin()],
+      minimizer: [
+        new TerserJSPlugin(jsOptimizationParams),
+        // in an attempt to be able to replace files in docker container
+        process.env.NODE_ENV === 'production' ? new CssMinimizerPlugin() : () => {},
+      ],
     },
     module: {
       rules: [
