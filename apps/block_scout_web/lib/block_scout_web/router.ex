@@ -4,6 +4,10 @@ defmodule BlockScoutWeb.Router do
   alias BlockScoutWeb.Plug.GraphQL
   alias BlockScoutWeb.{ApiRouter, WebRouter}
 
+  if Application.get_env(:block_scout_web, :force_ssl) do
+    plug(Plug.SSL, rewrite_on: [:x_forwarded_host, :x_forwarded_port, :x_forwarded_proto])
+  end
+
   if Application.get_env(:block_scout_web, ApiRouter)[:wobserver_enabled] do
     forward("/wobserver", Wobserver.Web.Router)
   end

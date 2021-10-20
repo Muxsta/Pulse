@@ -15,7 +15,7 @@ use Mix.Config
 # which you typically run after static files are built.
 config :block_scout_web, BlockScoutWeb.Endpoint,
   cache_static_manifest: "priv/static/cache_manifest.json",
-  force_ssl: false,
+  force_ssl: System.get_env("FORCE_SSL", "false") == "true",
   secret_key_base: System.get_env("SECRET_KEY_BASE"),
   check_origin: System.get_env("CHECK_ORIGIN") || false,
   http: [port: System.get_env("PORT")],
