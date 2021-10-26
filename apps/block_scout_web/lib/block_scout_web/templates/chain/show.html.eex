@@ -50,7 +50,7 @@
                             <%= render BlockScoutWeb.IconsView, "_gas_price_icon.html" %>
                           </span>
                           <%= @gas_price <> " " %>
-                          <%= gettext "Gwei" %>
+                          <%= gettext "Beat" %>
                         </span>
                       <% end %>
                     </div>
