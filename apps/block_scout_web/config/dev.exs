@@ -35,6 +35,7 @@ config :block_scout_web, BlockScoutWeb.Endpoint,
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
+  force_ssl: false,
   watchers: [
     node: [
       "node_modules/webpack/bin/webpack.js",
