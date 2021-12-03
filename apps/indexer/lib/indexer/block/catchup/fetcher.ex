@@ -32,8 +32,22 @@ defmodule Indexer.Block.Catchup.Fetcher do
   # These are all the *default* values for options.
   # DO NOT use them directly in the code.  Get options from `state`.
 
-  @blocks_batch_size 10
-  @blocks_concurrency 10
+  #   121 block/s
+  #   blocks_batch_size: 1
+  #   blocks_concurrency: 800
+
+  #  30 block/s
+  #  blocks_batch_size: 10
+  #  blocks_concurrency: 50
+
+  #  10 block/s (default)
+  #  blocks_batch_size: 10
+  #  blocks_concurrency: 10
+
+  # Tried adding the config options to json_rpc_named_arguments, but they never worked.
+
+  @blocks_batch_size 1
+  @blocks_concurrency 800
   @sequence_name :block_catchup_sequencer
 
   defstruct blocks_batch_size: @blocks_batch_size,
