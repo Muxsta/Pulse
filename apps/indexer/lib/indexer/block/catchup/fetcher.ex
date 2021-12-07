@@ -47,7 +47,7 @@ defmodule Indexer.Block.Catchup.Fetcher do
   # Tried adding the config options to json_rpc_named_arguments, but they never worked.
 
   @blocks_batch_size 1
-  @blocks_concurrency 800
+  @blocks_concurrency 500
   @sequence_name :block_catchup_sequencer
 
   defstruct blocks_batch_size: @blocks_batch_size,
