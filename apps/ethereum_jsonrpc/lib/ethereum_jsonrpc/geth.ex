@@ -84,7 +84,7 @@ defmodule EthereumJSONRPC.Geth do
     end)
   end
 
-  @tracer_path "priv/js/ethereum_jsonrpc/geth/debug_traceTransaction/tracer.js"
+  @tracer_path "priv/js/ethereum_jsonrpc/geth/debug_traceTransaction/tracer.min.js"
   @external_resource @tracer_path
   @tracer File.read!(@tracer_path)
 

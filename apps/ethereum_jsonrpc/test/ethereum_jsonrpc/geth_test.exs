@@ -20,7 +20,7 @@ defmodule EthereumJSONRPC.GethTest do
       block_number = 3_287_375
       transaction_index = 13
       transaction_hash = "0x32b17f27ddb546eab3c4c33f31eb22c1cb992d4ccc50dae26922805b717efe5c"
-      tracer = File.read!("priv/js/ethereum_jsonrpc/geth/debug_traceTransaction/tracer.js")
+      tracer = File.read!("priv/js/ethereum_jsonrpc/geth/debug_traceTransaction/tracer.min.js")
 
       expect(EthereumJSONRPC.Mox, :json_rpc, fn [%{id: id, params: [^transaction_hash, %{tracer: ^tracer}]}], _ ->
         {:ok,
