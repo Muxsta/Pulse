@@ -90,7 +90,7 @@
           <%= if Helper.payable?(function) do %>
             <div class="form-group pr-3 d-flex">
               <input type="number" name="function_input" tx-value
-              data-toggle="tooltip" title='Amount in native token <<%= gettext("ETH")%>>' class="form-control form-control-sm address-input-sm" placeholder='value(<%= gettext("ETH")%>)' min="0" step="1e-18" />
+              data-toggle="tooltip" title='Amount in native token <<%= gettext("PLS")%>>' class="form-control form-control-sm address-input-sm mt-2" placeholder='value(<%= gettext("PLS")%>)' min="0" step="1e-18" />
             </div>
           <% end %>
 
@@ -118,10 +118,22 @@
           <%= for {output, index} <- Enum.with_index(function["outputs"]) do %>
             <%= if address?(output["type"]) do %>
               <div class="py-2 word-break-all">
+<<<<<<< HEAD
                 <%= link(
                   output["value"],
                   to: address_path(@conn, :show, output["value"])) %><%= if length > 1 and index < length - 1 do %>,&#160;<% end %>
               </div>
+=======
+                <div data-wei-ether-converter>
+                  <span data-conversion-unit data-original-value="<%= output["value"] %>"><%= output["value"] %></span>
+                  <span class="py-2 px-2">
+                    <input class="wei-ether" type="checkbox" autocomplete="off">
+                    <span class="d-inline-block" data-conversion-text-wei><%= gettext("WEI")%></span>
+                    <span class="d-none" data-conversion-text-eth><%= gettext("PLS")%></span>
+                  </span>
+                </div>
+              </div> 
+>>>>>>> 450eb0e5a (Fix native_token ETH -> PLS)
             <% else %>
               <%= if output["type"] == "uint256" do %>
                 <div class="py-2 word-break-all">
