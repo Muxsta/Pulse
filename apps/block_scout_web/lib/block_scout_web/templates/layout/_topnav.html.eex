@@ -79,7 +79,7 @@
                       style: "white-space: nowrap;"
                     ) %>
                 <%= link(
-                      gettext("PulseChain Testnet Accounts"),
+                      gettext("Ether"),
                       class: "dropdown-item #{tab_status("accounts", @conn.request_path)}",
                       to: address_path(@conn, :index)
                     ) %>
@@ -100,7 +100,7 @@
                       to: tokens_path(@conn, :index)
                     ) %>
                 <%= link(
-                      gettext("Pulse"),
+                      gettext("Ether"),
                       class: "dropdown-item #{tab_status("accounts", @conn.request_path)}",
                       to: address_path(@conn, :index)
                     ) %>

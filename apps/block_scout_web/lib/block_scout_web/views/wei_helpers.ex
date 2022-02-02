@@ -73,7 +73,7 @@ defmodule BlockScoutWeb.WeiHelpers do
     end
   end
 
-  defp display_unit(:wei), do: gettext("Impulse")
-  defp display_unit(:gwei), do: gettext("Beat")
-  defp display_unit(:ether), do: gettext("Pulse")
+  defp display_unit(:wei), do: gettext("Wei")
+  defp display_unit(:gwei), do: gettext("Gwei")
+  defp display_unit(:ether), do: gettext("Ether")
 end
