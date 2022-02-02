@@ -20,7 +20,7 @@ defmodule BlockScoutWeb.LayoutView do
     },
     %{
       title: "PulseChain",
-      url: "https://scan.pulsechain.com"
+      url: "https://scan.v2.testnet.pulsechain.com"
     }
   ]
 
