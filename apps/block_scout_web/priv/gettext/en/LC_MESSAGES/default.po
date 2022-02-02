@@ -370,7 +370,7 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/layout/app.html.eex:46
 msgid "Block Mined, awaiting import..."
-msgstr ""
+msgstr "Block Signed, processing..."
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:33
@@ -423,7 +423,7 @@ msgstr ""
 #: lib/block_scout_web/templates/address/overview.html.eex:291 lib/block_scout_web/templates/address_validation/index.html.eex:11
 #: lib/block_scout_web/views/address_view.ex:356
 msgid "Blocks Validated"
-msgstr ""
+msgstr "Blocks Signed"
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_footer.html.eex:22
@@ -1548,13 +1548,13 @@ msgstr ""
 #: lib/block_scout_web/templates/block/_tile.html.eex:41
 #: lib/block_scout_web/templates/block/overview.html.eex:92 lib/block_scout_web/templates/chain/_block.html.eex:16
 msgid "Miner"
-msgstr ""
+msgstr "Signer"
 
 #, elixir-format
 #: lib/block_scout_web/views/block_view.ex:61
 #: lib/block_scout_web/views/block_view.ex:66
 msgid "Miner Reward"
-msgstr ""
+msgstr "Validator Reward"
 
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_minimal_proxy_pattern.html.eex:3
@@ -2861,12 +2861,12 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:47
 msgid "Validated"
-msgstr ""
+msgstr "Signed"
 
 #, elixir-format
 #: lib/block_scout_web/templates/transaction/index.html.eex:12
 msgid "Validated Transactions"
-msgstr ""
+msgstr "Signed Transactions"
 
 #, elixir-format
 #: lib/block_scout_web/templates/address/_validator_metadata_modal.html.eex:30

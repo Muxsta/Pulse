@@ -38,7 +38,8 @@ RUN mix do deps.get, local.rebar --force, deps.compile
 ADD . .
 
 ARG COIN
-RUN if [ "$COIN" != "" ]; then sed -i s/"POA"/"${COIN}"/g apps/block_scout_web/priv/gettext/en/LC_MESSAGES/default.po; fi
+RUN sed -i s/"POA"/"tPLS"/g apps/block_scout_web/priv/gettext/en/LC_MESSAGES/default.po
+RUN sed -i s/POA/Pulse/g apps/block_scout_web/priv/gettext/en/LC_MESSAGES/default.po
 
 # Run forderground build and phoenix digest
 RUN mix compile
