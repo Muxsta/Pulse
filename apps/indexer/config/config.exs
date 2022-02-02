@@ -6,11 +6,14 @@ import Bitwise
 
 block_transformers = %{
   "clique" => Indexer.Transform.Blocks.Clique,
+  "parlia" => Indexer.Transform.Blocks.Parlia,
   "base" => Indexer.Transform.Blocks.Base
 }
 
 # Compile time environment variable access requires recompilation.
+first_block = System.get_env("FIRST_BLOCK") || ""
 configured_transformer = System.get_env("BLOCK_TRANSFORMER") || "base"
+pulse_fork_block = System.get_env("PULSE_FORK_BLOCK") ||  0
 
 block_transformer =
   case Map.get(block_transformers, configured_transformer) do
@@ -30,12 +33,13 @@ block_transformer =
 
 config :indexer,
   block_transformer: block_transformer,
+  pulse_fork_block: pulse_fork_block,
   ecto_repos: [Explorer.Repo],
   metadata_updater_seconds_interval:
     String.to_integer(System.get_env("TOKEN_METADATA_UPDATE_INTERVAL") || "#{2 * 24 * 60 * 60}"),
   # bytes
   memory_limit: 58 <<< 30,
-  first_block: System.get_env("FIRST_BLOCK") || "",
+  first_block: first_block,
   last_block: System.get_env("LAST_BLOCK") || "",
   trace_first_block: System.get_env("TRACE_FIRST_BLOCK") || "",
   trace_last_block: System.get_env("TRACE_LAST_BLOCK") || ""
