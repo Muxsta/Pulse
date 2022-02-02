@@ -162,7 +162,7 @@ defmodule BlockScoutWeb.API.RPC.StatsControllerTest do
     test "returns the configured coin's price information", %{conn: conn} do
       symbol = Application.get_env(:explorer, :coin)
 
-      eth = %Token{
+      rop = %Token{
         available_supply: Decimal.new("1000000.0"),
         total_supply: Decimal.new("1000000.0"),
         btc_value: Decimal.new("1.000"),
@@ -175,19 +175,19 @@ defmodule BlockScoutWeb.API.RPC.StatsControllerTest do
         volume_24h_usd: Decimal.new("1000.0")
       }
 
-      ExchangeRates.handle_info({nil, {:ok, [eth]}}, %{})
+      ExchangeRates.handle_info({nil, {:ok, [rop]}}, %{})
 
       params = %{
         "module" => "stats",
         "action" => "coinprice"
       }
 
-      expected_timestamp = eth.last_updated |> DateTime.to_unix() |> to_string()
+      expected_timestamp = rop.last_updated |> DateTime.to_unix() |> to_string()
 
       expected_result = %{
-        "coin_btc" => to_string(eth.btc_value),
+        "coin_btc" => to_string(rop.btc_value),
         "coin_btc_timestamp" => expected_timestamp,
-        "coin_usd" => to_string(eth.usd_value),
+        "coin_usd" => to_string(rop.usd_value),
         "coin_usd_timestamp" => expected_timestamp
       }
 

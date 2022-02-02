@@ -73,18 +73,13 @@
                       to: tokens_path(@conn, :index)
                     ) %>
                 <%= link(
-                      gettext("Bridged from Ethereum"),
-                      class: "dropdown-item #{tab_status("bridged-tokens/eth", @conn.request_path)}",
-                      to: bridged_tokens_path(@conn, :show, :eth),
+                      gettext("Bridged from Ropsten"),
+                      class: "dropdown-item #{tab_status("bridged-tokens/rop", @conn.request_path)}",
+                      to: bridged_tokens_path(@conn, :show, :rop),
                       style: "white-space: nowrap;"
                     ) %>
                 <%= link(
-                      gettext("Bridged from BSC"),
-                      class: "dropdown-item #{tab_status("bridged-tokens/bsc", @conn.request_path)}",
-                      to: bridged_tokens_path(@conn, :show, :bsc)
-                    ) %>
-                <%= link(
-                      gettext("Pulse"),
+                      gettext("PulseChain Testnet Accounts"),
                       class: "dropdown-item #{tab_status("accounts", @conn.request_path)}",
                       to: address_path(@conn, :index)
                     ) %>
