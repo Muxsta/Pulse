@@ -13,7 +13,7 @@ defmodule BlockScoutWeb.AddressTransactionControllerTest do
 
     setup do
       configuration = Application.get_env(:explorer, :checksum_function)
-      Application.put_env(:explorer, :checksum_function, :eth)
+      Application.put_env(:explorer, :checksum_function, :rop)
 
       :ok
 

@@ -447,7 +447,7 @@ msgstr ""
 
 #, elixir-format
 #: lib/block_scout_web/templates/layout/_topnav.html.eex:78
-msgid "Bridged from Ethereum"
+msgid "Bridged from Ropsten"
 msgstr ""
 
 #, elixir-format

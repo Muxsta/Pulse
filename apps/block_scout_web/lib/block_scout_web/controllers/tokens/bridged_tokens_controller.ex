@@ -7,20 +7,20 @@ defmodule BlockScoutWeb.BridgedTokensController do
   alias Explorer.Chain
   alias Phoenix.View
 
-  def show(conn, %{"type" => "JSON", "id" => "eth"} = params) do
-    get_items(conn, params, :eth)
+  def show(conn, %{"type" => "JSON", "id" => "rop"} = params) do
+    get_items(conn, params, :rop)
   end
 
   def show(conn, %{"type" => "JSON", "id" => "bsc"} = params) do
     get_items(conn, params, :bsc)
   end
 
-  def show(conn, %{"id" => "eth"}) do
+  def show(conn, %{"id" => "rop"}) do
     render(conn, "index.html",
       current_path: Controller.current_full_path(conn),
-      chain: "Ethereum",
-      chain_id: 1,
-      destination: :eth
+      chain: "Ropsten Ether",
+      chain_id: 3,
+      destination: :rop
     )
   end
 
@@ -38,15 +38,15 @@ defmodule BlockScoutWeb.BridgedTokensController do
   end
 
   def index(conn, %{"type" => "JSON"} = params) do
-    get_items(conn, params, :eth)
+    get_items(conn, params, :rop)
   end
 
   def index(conn, _params) do
     render(conn, "index.html",
       current_path: Controller.current_full_path(conn),
-      chain: "Ethereum",
-      chain_id: 1,
-      destination: :eth
+      chain: "Ropsten Ether",
+      chain_id: 3,
+      destination: :rop
     )
   end
 
