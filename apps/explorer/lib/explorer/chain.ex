@@ -6696,6 +6696,37 @@ defmodule Explorer.Chain do
     end
   end
 
+  def extract_db_username(db_url) do
+    if db_url == nil do
+      ""
+    else
+      db_url
+      |> String.split("@")
+      |> Enum.take(1)
+      |> Enum.at(0)
+      |> String.split(":")
+      |> Enum.take(-2)
+      |> Enum.at(0)
+      |> String.split("//")
+      |> Enum.take(-1)
+      |> Enum.at(0)
+    end
+  end
+
+  def extract_db_password(db_url) do
+    if db_url == nil do
+      ""
+    else
+      db_url
+      |> String.split("@")
+      |> Enum.take(1)
+      |> Enum.at(0)
+      |> String.split(":")
+      |> Enum.take(-1)
+      |> Enum.at(0)
+    end
+  end
+
   @doc """
   Fetches the first trace from the Parity trace URL.
   """
