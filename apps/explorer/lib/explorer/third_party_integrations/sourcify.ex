@@ -10,17 +10,32 @@ defmodule Explorer.ThirdPartyIntegrations.Sourcify do
   def check_by_address(address_hash_string) do
     chain_id = config(:chain_id)
     params = [addresses: address_hash_string, chainIds: chain_id]
-    http_get_request(check_by_address_url(), params)
+    case http_get_request(check_by_address_url(), params) do
+      {:error, _} ->
+        params = [addresses: address_hash_string, chainIds: "1"]
+        http_get_request(check_by_address_url(), params)
+    end
+
   end
 
   def check_by_address_any(address_hash_string) do
-    get_metadata_full_url = get_metadata_any_url() <> "/" <> address_hash_string
-    http_get_request(get_metadata_full_url, [])
+    chain_id = config(:chain_id)
+    get_metadata_full_url = get_metadata_any_url(chain_id) <> "/" <> address_hash_string
+    case http_get_request(get_metadata_full_url, []) do
+      {:error, _} ->
+        get_metadata_full_url = get_metadata_any_url("1") <> "/" <> address_hash_string
+        http_get_request(get_metadata_full_url, [])
+    end
   end
 
   def get_metadata(address_hash_string) do
-    get_metadata_full_url = get_metadata_url() <> "/" <> address_hash_string
-    http_get_request(get_metadata_full_url, [])
+    chain_id = config(:chain_id)
+    get_metadata_full_url = get_metadata_url(chain_id) <> "/" <> address_hash_string
+    case http_get_request(get_metadata_full_url, []) do
+      {:error, _} ->
+        get_metadata_full_url = get_metadata_url("1") <> "/" <> address_hash_string
+        http_get_request(get_metadata_full_url, [])
+    end
   end
 
   def verify(address_hash_string, files) do
@@ -45,7 +60,28 @@ defmodule Explorer.ThirdPartyIntegrations.Sourcify do
         end
       end)
 
-    http_post_request(verify_url(), multipart_body)
+    case http_post_request(verify_url(), multipart_body) do
+      {:error, _} ->
+         multipart_text_params =
+               Multipart.new()
+               |> Multipart.add_field("chain", "1")
+               |> Multipart.add_field("address", address_hash_string)
+
+         multipart_body =
+               files
+               |> Enum.reduce(multipart_text_params, fn file, acc ->
+                 if file do
+                   acc
+                   |> Multipart.add_file(file.path,
+                     name: "files",
+                     file_name: Path.basename(file.path)
+                   )
+                 else
+                   acc
+                 end
+               end)
+         http_post_request(verify_url(), multipart_body)
+    end
   end
 
   def http_get_request(url, params) do
@@ -200,13 +236,11 @@ defmodule Explorer.ThirdPartyIntegrations.Sourcify do
     "#{base_server_url()}" <> "/check-by-addresses"
   end
 
-  defp get_metadata_url do
-    chain_id = config(:chain_id)
+  defp get_metadata_url(chain_id) do
     "#{base_server_url()}" <> "/files/" <> chain_id
   end
 
-  defp get_metadata_any_url do
-    chain_id = config(:chain_id)
+  defp get_metadata_any_url(chain_id) do
     "#{base_server_url()}" <> "/files/any/" <> chain_id
   end
 end
