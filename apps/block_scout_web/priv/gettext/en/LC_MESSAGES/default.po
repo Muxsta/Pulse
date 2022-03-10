@@ -3080,7 +3080,7 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_functions.html.eex:145
 msgid "WEI"
-msgstr ""
+msgstr "Impulse"
 
 #, elixir-format
 #: lib/block_scout_web/templates/smart_contract/_pending_contract_write.html.eex:9
