@@ -7,14 +7,30 @@ defmodule Explorer.Chain.Events.Listener do
 
   alias Postgrex.Notifications
 
+  import Explorer.Chain, only: [
+    extract_db_username: 1,
+    extract_db_password: 1,
+    extract_db_name: 1,
+    extract_db_host: 1
+  ]
+
   def start_link(_) do
     GenServer.start_link(__MODULE__, "chain_event", name: __MODULE__)
   end
 
   def init(channel) do
+      explorer_repo =
+        :explorer
+        |> Application.get_env(Explorer.Repo)
+
+    db_url = explorer_repo[:url]
+
     {:ok, pid} =
-      :explorer
-      |> Application.get_env(Explorer.Repo)
+      explorer_repo
+      |> Keyword.put(:username, extract_db_username(db_url))
+      |> Keyword.put(:password, extract_db_password(db_url))
+      |> Keyword.put(:database, extract_db_name(db_url))
+      |> Keyword.put(:hostname, extract_db_host(db_url))
       |> Notifications.start_link()
 
     ref = Notifications.listen!(pid, channel)
