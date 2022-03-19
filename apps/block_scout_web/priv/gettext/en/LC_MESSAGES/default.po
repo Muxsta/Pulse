@@ -202,7 +202,7 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/address/overview.html.eex:165
 msgid "Address balance in xDAI (doesn't include ERC20, ERC721, ERC1155 tokens)."
-msgstr ""
+msgstr "Address balance in PulseChain (doesn't include PRC20, PRC721, PRC1155 tokens)."
 
 #, elixir-format
 #: lib/block_scout_web/templates/tokens/overview/_details.html.eex:65
@@ -1002,22 +1002,22 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/common_components/_minimal_proxy_pattern.html.eex:6
 msgid "EIP-1167"
-msgstr ""
+msgstr "PIP-1167"
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:214
 msgid "ERC-1155 "
-msgstr ""
+msgstr "PRC-1155 "
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:212
 msgid "ERC-20 "
-msgstr ""
+msgstr "PRC-20 "
 
 #, elixir-format
 #: lib/block_scout_web/views/transaction_view.ex:213
 msgid "ERC-721 "
-msgstr ""
+msgstr "PRC-721 "
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:1
@@ -2110,7 +2110,7 @@ msgstr ""
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:59
 msgid "Shows the tokens held in the address (includes ERC-20, ERC-721 and ERC-1155)."
-msgstr ""
+msgstr "Shows the tokens held in the address (includes PRC-20, PRC-721 and PRC-1155)."
 
 #, elixir-format
 #: lib/block_scout_web/templates/address_token/overview.html.eex:66

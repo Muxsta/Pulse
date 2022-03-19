@@ -15,12 +15,12 @@ defmodule BlockScoutWeb.LayoutView do
     # },
     %{
       title: "PulseChain Testnet",
-      url: "https://scan.v2.testnet.pulsechain.com",
+      url: "https://scan.v2b.testnet.pulsechain.com",
       test_net?: true
     },
     %{
       title: "PulseChain",
-      url: "https://scan.v2.testnet.pulsechain.com"
+      url: "https://scan.v2b.testnet.pulsechain.com"
     }
   ]
 
